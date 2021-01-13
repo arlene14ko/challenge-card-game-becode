@@ -1,4 +1,5 @@
 from random import random
+from player.py import Players, Player
 
 class Symbol:
     """
@@ -57,7 +58,40 @@ class Deck(Card):
         # function that will shuffle the list of cards
         return random.shuffle(fill_deck(self))
 
-    def distribute({Player}): #number of players
+    def distribute(self, Players, Player): #number of players
         #function that will distribute cards evenly b/w players
+        self.shuffle()
+        if num_of_players == 2:
+            card_distrib = {
+                player_list[0] = fill_deck[0:26],
+                player_list[1] = fill_deck[26:52]
+            }
+        elif num_of_players == 3:
+            card_distrib = {
+                player_list[0] = fill_deck[0:17],
+                player_list[1] = fill_deck[17:34],
+                player_list[2] = fill_deck[34:51]
+            }
+        elif num_of_players == 4:
+            card_distrib = {
+                player_list[0] = fill_deck[0:13],
+                player_list[1] = fill_deck[13:26],
+                player_list[2] = fill_deck[26:39],
+                player_list[3] = fill_deck[39:52]
+            }
+        elif num_of_players == 5:
+            card_distrib = {
+                player_list[0] = fill_deck[0:10],
+                player_list[1] = fill_deck[10:20],
+                player_list[2] = fill_deck[20:30],
+                player_list[3] = fill_deck[30:40],
+                player_list[4] = fill_deck[40:50]
+            }
+        return card_distrib
+        
+
+
+
+
 
 
