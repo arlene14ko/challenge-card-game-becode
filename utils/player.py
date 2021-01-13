@@ -18,7 +18,7 @@ class Player:
     def play(self):
         self.cards.random() = CARD_NUMBER
         self.history.append(CARD_NUMBER)
-        print(f"{PLAYER_NAME} - {TURN_COUNT} played {CARD_NUMBER} {CARD_SYMBOL_ICON}.")
-        return Card
+        print(f"{PLAYER_NAME} - {TURN_COUNT} played: {CARD_NUMBER} {CARD_SYMBOL_ICON}.")
+        return CARD_NUMBER
 
 

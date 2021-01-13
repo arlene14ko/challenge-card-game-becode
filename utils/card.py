@@ -1,3 +1,5 @@
+from random import random
+
 class Symbol:
     """
     Class that shows the symbols of the cards.
@@ -9,8 +11,16 @@ class Symbol:
         self.icon = icon 
     def symbol(color, icon):
         icon = ['♥','♦','♣','♠']
+        color = ['red', 'black']
         for i in range(0, len(icon)):
-            if
+            if icon[i] == '♥':
+                return(f"{color[0]} \u2764\uFE0F")
+            elif icon[i] == '♦':
+                return(f"{color[0]} \u2666")
+            elif icon[i] == '♣':
+                return(f"{color[1]} \u2663")
+            elif icon[i] == '♠':
+                return(f"{color[1]} \u2660")
 
 class Card(Symbol):
     """
@@ -20,7 +30,12 @@ class Card(Symbol):
     def __init__(self, color, icon, value):
         super().__init__(color, icon)
         self.value = value 
-
+    
+    def cards(self)
+        value = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+        for x in range(0, len(icon)):
+            for y in range(0, len(value)):
+                return icon[x] + value[y]
 
 class Deck(Card):
     """
@@ -30,7 +45,19 @@ class Deck(Card):
         super().__init__(color,icon,value)
         self.cards = cards
     
-    def fill_deck():
-        for i in icon:
+    def fill_deck(self):
+        # function that will fill the deck of 52 cards
+        filldeck = [] # list will contain all 52 cards
+        for x in range(0, len(icon)):
+            for y in range(0, len(value)):
+                filldeck.append(Card.cards(self))
+        return filldeck
+
+    def shuffle(self):
+        # function that will shuffle the list of cards
+        return random.shuffle(fill_deck(self))
+
+    def distribute({Player}): #number of players
+        #function that will distribute cards evenly b/w players
 
 
