@@ -1,5 +1,5 @@
-from player.py import Player, Players
-from card.py import Deck
+from player import Player
+from card import Deck
 
 class Board:
     """
@@ -15,26 +15,30 @@ class Board:
         self.active_cards = active_cards
         self.history_cards = history_cards 
 
-    def start_game(self):
+    def start_game(self, player_list, card_distrib, num_of_players, current_cards, chosen_card, player_name, active_card):
         # start the game
         print("Welcome players! We are going to play a card game. You will be given same amount of cards and you need to draw the highest number each turn to have a point. The player who has most points will be the winner!")
         
-        #asking input from players from player.py (class Players)
-        players.player_list(self) 
-        print(f"Welcome {players.playerlist(self)}!. We will now start the game. Good luck!")
+        #asking input from players from player.py (class Player)
+        Player.playerlist() 
+        print(f"Welcome {player_list}!. We will now start the game. Good luck!")
 
         #importing the Deck from card.py (class Deck )
         #fill deck function to fill the deck of 52 cards
-        Deck.fill_deck(self)
+        Deck.fill_deck()
         #shuffle deck function to shuffle the deck
-        Deck.shuffle(self)
+        Deck.shuffle()
         #distribute the deck to the players
         Deck.distribute() 
 
         #looping the number of times the game will play
-        num_of_plays = num_of_players * card_distrib[value]
-        for i in number_of_cards:
-            for x in num_of_players:
-                Player.play(Card) #player should only play 1 card per turn (loop)
-                print(f"Player: {Player_name} Turn Count: {turn_count} List of Active Cards: {active_cards} History: {history_cards})
+        active_cards = []
+        history_cards = []
+        while current_cards > 0:
+            for num in player_list:
+                Player.play() #chosen_card should be returned player should only play 1 card per turn (loop)
+                active_cards.append(active_card)
+                history_cards.append(active_cards) 
+                print(f"Player: {player_name} Turn Count: {turn_count} List of Active Cards: {active_cards} History: {history_cards[:-1]}.")
+        print("Game over! Hope you had fun! :) ")
 

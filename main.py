@@ -1,6 +1,6 @@
-from player.py import Players
+from utils.game import Board
 
 #Start Game
-
+Board.start_game()
 
 
