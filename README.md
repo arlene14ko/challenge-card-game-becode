@@ -14,8 +14,6 @@
 
 To create a card game in Python using Object Oriented Programming (OOP) 
 
-![Card game!] (https://i.gifer.com/fetch/w300-preview/29/290cd2d3e7167a98d373f08cf1654139.gif)
-
 ## Learning Objectives
 - To familiarize Object Oriented Programming (OOP)
 - Learn to structure a project
