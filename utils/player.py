@@ -6,9 +6,8 @@ class Player:
     :history is a list of (Card class) that will contain all the cards played by the player
     """
 
-    def __init__(self, turn_count, number_of_cards, history, active_card):
+    def __init__(self, turn_count, history, active_card):
         self.turn_count = turn_count
-        self.number_of_cards = number_of_cards
         self.history = history
         self.active_card = active_card
 

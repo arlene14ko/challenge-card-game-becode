@@ -1,7 +1,6 @@
 from utils.card import Deck
 from utils.player import Player
 
-
 class Board:
     """
     Class containing the gameboard
