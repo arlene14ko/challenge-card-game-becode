@@ -55,10 +55,12 @@ This is a pretty simple Card game and it has two branches `Main` branch and `Dev
 
 **README.md**
   - you are currently reading it right now
+
 **main.py**
   - this is where you start the game
   - everything that you need to start the game is imported here 
   - if you choose the interactive version, you will also be asked here for the number of players and the player names
+
 **utils folder**
   - this has 3 files namely:
       1. **card.py**
