@@ -29,7 +29,7 @@ class Symbol:
 class Card(Symbol):
     """
     Class that inherits from the class Symbol and contains the color, icon and value of the cards
-    :attrib value is a string one of this = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', ])
+    :attrib value is a string one of this = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'  ])
     """
     def __init__(self, color, icon, value):
         super().__init__(color, icon)
