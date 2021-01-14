@@ -1,32 +1,14 @@
 from utils.game import Board
 
-# Start Game
-print("=================================================================")
-print(
-    "\nWelcome players! \nWe are going to play a card game. \nYou will be given same amount of cards and you need to draw the highest number each turn to have a point. \nThe player who has most points will be the winner!\n"
-)
-
-# asking input from players
-player_list = []
-print("=================================================================")
-print("This game requires number of players from 2 to 5 people.")
-print("=================================================================")
-num_of_players = int(input("Please enter number of players:  "))
-print("_________________________________________________________________")
-if num_of_players <= 1 or num_of_players > 5:
-    print("Please enter number more than 1 or less than 6")
-else:
-    for i in range(num_of_players):
-        name = input(f"Please enter name of Player {i+1}: ")
-        player_name = f"Player {i+1}: {name}"
-        player_list.append(player_name)
-    print("_________________________________________________________________")
-    print(
-        f"Welcome {' , '.join(str(e) for e in player_list)}! \nWe will now start the game. \nGood luck! :D "
-    )
-    print("_________________________________________________________________")
-
-# importing the Deck from card.py (class Deck )
-# fill deck function to fill the deck of 52 cards
-
+'''Python file where we start the program
+    :attrib num_of_players number of players in the game
+    :attrib player_list list of player_name in the game
+    :attrib player_name is the name of the player
+'''
+# initializing num_of_players
+num_of_players = 2
+player_list = [ 'Arl', 'Lene']
+print(f"Welcome {player_list}")
+# importing the class Board from utils/game.py
+# function Board.start_game() to start running the game
 startgame = Board.start_game(num_of_players, player_list)

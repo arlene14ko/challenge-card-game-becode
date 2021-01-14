@@ -1,3 +1,5 @@
+from random import choice
+
 class Player:
     """
     Class containing the Players
@@ -12,20 +14,10 @@ class Player:
         self.history = history
         self.active_card = active_card
 
-    def play(player_name, current_cards):
-        history = []
+    def play(name, cards):
         # function that will allow  make the player to make a turn
-        print("------------------------------------------------------------")
-        active_card = input(
-            f"Hello {player_name}!\nPlease choose the card you want to play from: \n {current_cards} \nYour choice here: "
-        )
-        if active_card not in current_cards:
-            print("You choose something not on the list. Please try again! ")
-            active_card = input(
-                f"Hello {player_name}!\nPlease choose the card you want to play from: \n {current_cards} \nYour choice here: "
-            )
-        history.append(active_card)
+        active_card = choice(cards)
         print(
-            f"----------------\n{player_name} \nPlayed: {active_card} \nHistory: {history} "
+            f"Player: {name} --- Played: {active_card}"
         )
         return active_card

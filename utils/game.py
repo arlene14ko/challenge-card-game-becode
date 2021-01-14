@@ -21,44 +21,22 @@ class Board:
 
         # filling deck with 52 cards
         deck.fill_deck()
-        cards = deck.fill_deck()  # working
+        cards = deck.fill_deck()  # calling the fill_deck function and naming it as cards
 
         # shuffle deck function to shuffle the deck
-        deck.shuffle(cards)  # working
+        deck.shuffle(cards)  
 
         # distribute the deck to the players
-        distribute = deck.distribute(num_of_players, player_list, cards)  # working
+        distribute = deck.distribute(num_of_players, player_list, cards)  
 
         # looping the number of times the game will play
         num_of_plays = int(len(cards) / num_of_players)
         turn_count = 0
-        print(f"Number of plays: {num_of_plays}, Num of Players: {num_of_players}")
-        print("===================================================================")
-        # for debugging purposes
-        history_cards = []
-        active_cards = []
         while turn_count < int(num_of_plays):
             for name, card in distribute.items():
-                player_name = name
-                current_cards = card
-                active_card = Player.play(
-                    player_name, current_cards
-                )  # chosen_card should be returned player should only play 1 card per turn (loop)
-                active_cards.append(active_card)
-                current_cards.remove(active_card)
-            history_cards.append(active_cards)
-            history = history_cards[:-1]
+                name = name
+                cards = card
+                active_card = Player.play(name, cards)  # chosen_card should be returned player should only play 1 card per turn (loop)
+                cards.remove(active_card)
             turn_count += 1
-            powerful = Board.points(active_cards, name, card)
-            print("_________________________________________________________________")
-            print(
-                f"Players Turn Count: {turn_count} \nList of Active Cards: {active_cards} \nWinning Card: {powerful} \nHistory: {history}."
-            )
-            print("_________________________________________________________________")
-            active_cards = []
-        print("Game over! Congratulations! Hope you had fun! :) ")
-        print("=============================================")
-
-    def points(active_cards, name, card):
-        # scorecard
-        return max(active_cards)
+        print("Game over!")
