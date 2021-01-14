@@ -1,10 +1,12 @@
 from utils.game import Board
 
-#Start Game
+# Start Game
 print("=================================================================")
-print("\nWelcome players! \nWe are going to play a card game. \nYou will be given same amount of cards and you need to draw the highest number each turn to have a point. \nThe player who has most points will be the winner!\n")
+print(
+    "\nWelcome players! \nWe are going to play a card game. \nYou will be given same amount of cards and you need to draw the highest number each turn to have a point. \nThe player who has most points will be the winner!\n"
+)
 
-#asking input from players 
+# asking input from players
 player_list = []
 print("=================================================================")
 print("This game requires number of players from 2 to 5 people.")
@@ -19,14 +21,12 @@ else:
         player_name = f"Player {i+1}: {name}"
         player_list.append(player_name)
     print("_________________________________________________________________")
-    print(f"Welcome {' , '.join(str(e) for e in player_list)}! \nWe will now start the game. \nGood luck! :D ")
+    print(
+        f"Welcome {' , '.join(str(e) for e in player_list)}! \nWe will now start the game. \nGood luck! :D "
+    )
     print("_________________________________________________________________")
 
-#importing the Deck from card.py (class Deck )
-#fill deck function to fill the deck of 52 cards
+# importing the Deck from card.py (class Deck )
+# fill deck function to fill the deck of 52 cards
 
-startgame = Board.start_game(num_of_players,player_list)
-
-
-
-
+startgame = Board.start_game(num_of_players, player_list)
