@@ -44,10 +44,10 @@ This is a pretty simple Card game and it has two branches `Main` branch and `Dev
 - It also announces the winner, the player has the most points at the end of the game.
 
 ### Code Style
- - Each ** class ** have a [`__str__()` method] 
+ - Each **class** have a **`__str__()` method**
  - Each **function or class**  is  **typed**
  - Each **function or class** contains a **docstring** 
- - The code is **formatted** with [black] (https://pypi.org/project/black/)
+ - The code is **formatted** with **black**
  - The code has been **commented**.
  - The code is **cleaned of any commented unused code**.
 
