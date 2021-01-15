@@ -12,7 +12,7 @@ class Symbol:
         self.color = color
         self.icon = icon
 
-    def symbol():
+    def symbol(self):
         icon = ["♥", "♦", "♣", "♠"]
         symbol = []
         color = ["red", "black"]
@@ -34,9 +34,10 @@ class Card(Symbol):
     :attrib value is a string one of this = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'  ])
     """
 
-    def __init__(self, color, icon, value):
+    def __init__(self, color, icon, symbol, value):
         super().__init__(color, icon)
         self.value = value
+        self.symbol = Symbol.symbol()
 
     def cards():
         card = []
@@ -53,8 +54,8 @@ class Deck(Card):
     Class that contains all the 52 cards (deck)
     """
 
-    def __init__(self, color, icon, value, card):
-        super().__init__(color, icon, value)
+    def __init__(self, symbol, value):
+        super().__init__(symbol, value)
 
     def fill_deck():
         # function that will compile the deck of 52 cards
