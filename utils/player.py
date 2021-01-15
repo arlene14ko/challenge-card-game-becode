@@ -1,5 +1,6 @@
 from random import choice
 
+
 class Player:
     """
     Class containing the Players
@@ -17,7 +18,5 @@ class Player:
     def play(name, cards):
         # function that will allow  make the player to make a turn
         active_card = choice(cards)
-        print(
-            f"Player: {name} --- Played: {active_card}"
-        )
+        print(f"Player: {name} --- Played: {active_card}")
         return active_card

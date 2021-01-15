@@ -21,13 +21,15 @@ class Board:
 
         # filling deck with 52 cards
         deck.fill_deck()
-        cards = deck.fill_deck()  # calling the fill_deck function and naming it as cards
+        cards = (
+            deck.fill_deck()
+        )  # calling the fill_deck function and naming it as cards
 
         # shuffle deck function to shuffle the deck
-        deck.shuffle(cards)  
+        deck.shuffle(cards)
 
         # distribute the deck to the players
-        distribute = deck.distribute(num_of_players, player_list, cards)  
+        distribute = deck.distribute(num_of_players, player_list, cards)
 
         # looping the number of times the game will play
         num_of_plays = int(len(cards) / num_of_players)
@@ -36,7 +38,9 @@ class Board:
             for name, card in distribute.items():
                 name = name
                 cards = card
-                active_card = Player.play(name, cards)  # chosen_card should be returned player should only play 1 card per turn (loop)
+                active_card = Player.play(
+                    name, cards
+                )  # chosen_card should be returned player should only play 1 card per turn (loop)
                 cards.remove(active_card)
             turn_count += 1
         print("Game over!")

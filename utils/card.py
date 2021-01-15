@@ -1,5 +1,6 @@
 from random import shuffle
 
+
 class Symbol:
     """
     Class that shows the symbols of the cards.
@@ -68,8 +69,5 @@ class Deck(Card):
     def distribute(num_of_players, player_list, cards):  # number of players
         # function that will distribute cards evenly b/w players
         card_distrib = {}
-        card_distrib = {
-            player_list[0]: cards[0:26],
-            player_list[1]: cards[26:52] }
+        card_distrib = {player_list[0]: cards[0:26], player_list[1]: cards[26:52]}
         return card_distrib
-        
