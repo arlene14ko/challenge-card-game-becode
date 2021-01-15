@@ -1,13 +1,9 @@
-from random import shuffle
-
-# from colorama import Fore
-
+from random import shuffle # Importing Shuffle from random which we will use to shuffle the deck of cards
 
 class Symbol:
-    """
-    Class that shows the symbols of the cards.
-    :attrib color is a string
-    :attrib icon is a single character out of this list ['♥','♦','♣','♠']
+    """ Class that shows the symbols of the cards.
+        :attrib color is a string
+        :attrib icon is a single character out of this list ['♥','♦','♣','♠']
     """
 
     def __init__(self, color, icon):
@@ -31,9 +27,8 @@ class Symbol:
 
 
 class Card(Symbol):
-    """
-    Class that inherits from the class Symbol and contains the color, icon and value of the cards
-    :attrib value is a string one of this = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'  ])
+    """ Class that inherits from the class Symbol and contains the color, icon and value of the cards
+        :attrib value is a string one of this = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'  ])
     """
 
     def __init__(self, color, icon, value):
@@ -51,31 +46,38 @@ class Card(Symbol):
 
 
 class Deck(Card):
-    """
-    Class that contains all the 52 cards (deck)
+    """ Class that inherits from the class Card and it will contain the deck of cards
+        :attrib cards will contain the cards method from Card class
     """
 
-    def __init__(self, color, icon, value, filldeck, card):
+    def __init__(self, color, icon, value, card):
         super().__init__(color, icon, value)
-        self.filldeck = filldeck
 
     def fill_deck():
+        """ A method that will fill the deck of cards
+            :attrib cards will contain the list of deck cards
+            The cards is from the method cards from Card class
+        """
         cards = []
         cards = Card.cards()
-        # icon = ['♥','♦','♣','♠']
-        # value = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        """filldeck = []
-        for x in range(0, len(icon)):
-            for y in range(0, len(value)):
-                filldeck.append(icon[x]+value[y])"""
         return cards
 
     def shuffle(cards):
-        # function that will shuffle the list of cards
+        """ A method that will fill shuffle the cards
+            :parameter cards  contains the list of deck cards
+            :shuffle() - imported from random, will shuffle the cards randomly
+        """
         shuffle(cards)
 
-    def distribute(num_of_players, player_list, cards):  # number of players
-        # function that will distribute cards evenly b/w players
+    def distribute(num_of_players, player_list, cards):  
+        """ A method that will distribute the cards evenly to all the players
+            This method needs 3 parameteres:
+                1. num_of_players - contains the number of players from the main.py
+                2. player_list - contains the players name in a list from the main.py
+                3. cards - contains the shuffled filled cards 
+            :attrib card_distrib is a dictionary that will have the player_list and cards
+            This method will return the card_distrib dictionary
+        """
         card_distrib = {}
         if num_of_players == 2:
             card_distrib = {player_list[0]: cards[0:26], player_list[1]: cards[26:52]}

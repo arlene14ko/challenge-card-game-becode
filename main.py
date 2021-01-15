@@ -1,19 +1,18 @@
 from utils.game import Board #importing the Board class from game.py
 
 ''' Start Game
-    :Calling function line from class Board  for cleaner code
+    :Calling method line from class Board  for cleaner code
     :It will print a welcome message for the players and a little message about the mechanics of the game
+    Asking input from players
+    :attrib player_list will contain the list of players, starting value is an empty list
+    :attrib num_of_players will coint the number of players
+    :attrib player_name will be the name of the player
 ''' 
+
 line = Board.lines 
 line(1)
 print("Welcome players! \nWe are going to play a card game. \nYou will be given same amount of cards and you need to draw the highest number each turn to have a point. \nThe player who has most points will be the winner!")
 line(2)
-
-''' Asking input from players
-    :attrib player_list will contain the list of players, starting value is an empty list
-    :attrib num_of_players will coint the number of players
-    :attrib player_name will be the name of the player
-'''
 player_list = []
 print("\nThis game requires number of players from 2 to 5 people.")
 line(1)
@@ -37,7 +36,7 @@ else:
 
 ''' After getting the num_of_players, player_list and player_name from the user,
     We will now import the Board class from game.py
-    :attrib startgame will be the name of the function start_game from Board class
+    :attrib startgame will be the name of the method start_game from Board class
     startgame will need two parameters, num_of_players(type int) and player_list(list)
 ''' 
 startgame = Board.start_game(num_of_players, player_list)

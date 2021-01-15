@@ -16,7 +16,7 @@ class Board:
         self.history_cards = history_cards
 
     def start_game(num_of_players, player_list):
-        ''' Function start_game will start the game. 
+        ''' The method start_game will start the game. 
             It will have 2 parameters that it will get from main.py
                 1. num_of_players - int - this has the total number of players
                 2. player_list - list - this has the list of the player names
@@ -37,7 +37,7 @@ class Board:
         '''Creating a while loop where it will loop the number of times the game will play
             :attrib num_of_plays will contain the number of plays in the game - cards/num_of_players
             :turn_count will contain the number of turns in the game, starting at int 0
-            :line - imported from the function lines, to make a cleaner GUI code
+            :line - imported from the method lines, to make a cleaner GUI code
             :attrib history_cards - will contain the players history cards, starting at [] list
             :attrib active_cards - will contain the players current played cards
             :attrib endgame - a string containing 'end' which will allow the player to end the game during his/her turn
@@ -61,9 +61,7 @@ class Board:
                 player_name = name
                 cards = card
                 line(3)
-                active_card = Player.play(
-                    player_name, cards
-                )  # chosen_card should be returned player should only play 1 card per turn (loop)
+                active_card = Player.play(player_name, cards) 
                 if active_card == endgame:
                     line(1)
                     print(f"\n{player_name} have decided to end the game. \n")
@@ -90,9 +88,14 @@ class Board:
         line(1)
 
     def points():
+        '''Still figuring out the points system. 
+            Will pass this method as of this moment. 
+        '''
         pass
-    
+
     def lines(num):
+        '''Created this method to have a cleaner code
+        '''
         if num == 1:
             print("================================================================")
         elif num == 2:
