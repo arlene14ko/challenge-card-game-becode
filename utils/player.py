@@ -12,19 +12,18 @@ class Player:
         self.active_card = active_card
 
     def play(player_name, current_cards):
-        history = []
         # function that will allow  make the player to make a turn
-        print("------------------------------------------------------------")
+        history = []
+        turn_count = 0
         active_card = input(
             f"Hello {player_name}!\nPlease choose the card you want to play from: \n {current_cards} \nYour choice here: "
         )
         if active_card not in current_cards:
-            print("You choose something not on the list. Please try again! ")
+            print("\nYou choose something not on the list. Please try again! ")
             active_card = input(
-                f"Hello {player_name}!\nPlease choose the card you want to play from: \n {current_cards} \nYour choice here: "
+                f"Here are the correct choices: \n {current_cards} \nYour choice here: "
             )
+        turn_count += 1
         history.append(active_card)
-        print(
-            f"----------------\n{player_name} \nPlayed: {active_card} \nHistory: {history} "
-        )
+        print(f"----------------\n{player_name} \nPlayed: {active_card} \nTurn Count: {turn_count} \nHistory: {history} \n")
         return active_card

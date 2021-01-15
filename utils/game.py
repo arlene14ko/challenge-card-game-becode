@@ -32,15 +32,16 @@ class Board:
         # looping the number of times the game will play
         num_of_plays = int(len(cards) / num_of_players)
         turn_count = 0
-        print(f"Number of plays: {num_of_plays}, Num of Players: {num_of_players}")
-        print("===================================================================")
-        # for debugging purposes
+        print(f"\nNumber of plays: {num_of_plays}, Num of Players: {num_of_players} \n")
+        line = Board.lines
+        line(1)
         history_cards = []
         active_cards = []
         while turn_count < int(num_of_plays):
             for name, card in distribute.items():
                 player_name = name
                 current_cards = card
+                line(3)
                 active_card = Player.play(
                     player_name, current_cards
                 )  # chosen_card should be returned player should only play 1 card per turn (loop)
@@ -50,15 +51,24 @@ class Board:
             history = history_cards[:-1]
             turn_count += 1
             powerful = Board.points(active_cards, name, card)
-            print("_________________________________________________________________")
+            line(2)
             print(
                 f"Players Turn Count: {turn_count} \nList of Active Cards: {active_cards} \nWinning Card: {powerful} \nHistory: {history}."
             )
-            print("_________________________________________________________________")
+            line(2)
             active_cards = []
+        line(1)
         print("Game over! Congratulations! Hope you had fun! :) ")
-        print("=============================================")
+        line(1)
 
     def points(active_cards, name, card):
         # scorecard
         return max(active_cards)
+    
+    def lines(num):
+        if num == 1:
+            print("================================================================")
+        elif num == 2:
+            print("________________________________________________________________")
+        elif num == 3:
+            print("-----------------------------------------------------------------")
