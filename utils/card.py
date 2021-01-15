@@ -50,25 +50,39 @@ class Card(Symbol):
 
 
 class Deck(Card):
-    """
-    Class that contains all the 52 cards (deck)
+    """ Class that inherits from the class Card and it will contain the deck of cards
+        :attrib cards will contain the cards method from Card class
     """
 
     def __init__(self, symbol, value):
         super().__init__(symbol, value)
 
     def fill_deck():
-        # function that will compile the deck of 52 cards
+        """ A method that will fill the deck of cards
+            :attrib cards will contain the list of deck cards
+            The cards is from the method cards from Card class
+            It will return cards
+        """
         cards = []
         cards = Card.cards()
         return cards
 
     def shuffle(cards):
-        # function that will shuffle the list of cards
+        """ A method that will fill shuffle the cards
+            :parameter cards  contains the list of deck cards
+            :shuffle() - imported from random, will shuffle the cards randomly
+        """
         shuffle(cards)
 
-    def distribute(num_of_players, player_list, cards):  # number of players
-        # function that will distribute cards evenly b/w players
+    def distribute(num_of_players, player_list, cards):  
+        """ A method that will distribute the cards evenly to all the players
+            This method needs 3 parameteres:
+                1. num_of_players - contains the number of players from the main.py
+                2. player_list - contains the players name in a list from the main.py
+                3. cards - contains the shuffled filled cards 
+            :attrib card_distrib is a dictionary that will have the player_list and cards
+            This method will return the card_distrib dictionary
+        """
         card_distrib = {}
         card_distrib = {player_list[0]: cards[0:26], player_list[1]: cards[26:52]}
         return card_distrib

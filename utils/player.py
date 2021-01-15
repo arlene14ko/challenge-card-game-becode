@@ -15,7 +15,13 @@ class Player:
         self.active_card = active_card
 
     def play(name, cards):
-        # function that will allow  make the player to make a turn
+        ''' Method play will allow the player to make a turn
+            :parameter name contains the name of the player
+            :parameter cards contains the list of cards the player currently have
+            :attrib history will contain the history of cards the player played, starting at empty []
+            :attrib active_card will the card the player chose during the turn
+            This method will return the active_card
+        '''
         turn_count = 0
         history = []
         active_card = choice(cards)
