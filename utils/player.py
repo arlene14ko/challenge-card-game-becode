@@ -19,6 +19,7 @@ class Player:
             :attrib endgame is a string containing the word 'end', it will allow the player to choose to end the game
             :attrib active_card will the card the player chose during the turn
         '''
+        
         turn_count = 0
         history = []
         endgame = 'end'
@@ -40,3 +41,21 @@ class Player:
         history.append(active_card)
         print(f"----------------\n{player_name} \nPlayed: {active_card} \nTurn Count: {turn_count} \nHistory: {history} \n")
         return active_card
+    
+    def players(num_of_players):
+        ''' Method that will ask the users to input the players name.
+            It needs a parameter: num_of_players - this is also from the user from main.py
+            :attrib player_list will contain all the player name in a list, starting at [] empty list
+            :name contains the name of the player
+            :player name contains the name of the player plus their player number
+            This method will return the player_list
+        '''
+        player_list = []
+        for i in range(num_of_players):
+            name = input(f"Please enter name of Player {i+1}: ")
+            player_name = f"Player {i+1}: {name}"
+            player_list.append(player_name)
+        print(
+        f"\nWelcome {' , '.join(str(e) for e in player_list)}! \nWe will now start the game. \nGood luck! :D "
+        )
+        return player_list

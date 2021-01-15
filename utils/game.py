@@ -1,4 +1,4 @@
-from utils.card import Deck #importing the Deck class from card.py
+from utils.card import Deck     #importing the Deck class from card.py
 from utils.player import Player #importing the Player class from player.py
 
 
@@ -16,7 +16,7 @@ class Board:
         self.history_cards = history_cards
 
     def start_game(num_of_players, player_list):
-        ''' The method start_game will start the game. 
+        ''' This method start_game will start the game. 
             It will have 2 parameters that it will get from main.py
                 1. num_of_players - int - this has the total number of players
                 2. player_list - list - this has the list of the player names
@@ -52,6 +52,7 @@ class Board:
         turn_count = 0
         print(f"\nNumber of plays: {num_of_plays}, Num of Players: {num_of_players} \n")
         line = Board.lines
+        message = Board.greetings
         line(1)
         history_cards = []
         active_cards = []
@@ -84,17 +85,32 @@ class Board:
                 line(2)
                 active_cards = []
         line(1)
-        print("\nGame over! \nThank you for playing!\nHope you had fun! :) \n")
+        message(3)
         line(1)
+
 
     def points():
         '''Still figuring out the points system. 
-            Will pass this method as of this moment. 
+           Will pass this method as of this moment. 
         '''
         pass
+    
+            
+    def greetings(num):
+        ''' This method contains greetings for the user. For cleaner code purposes.
+            Returns a greeting depending on the parameter number
+        '''
+        if num == 1:
+            print("Welcome players! \nWe are going to play a card game. \nYou will be given same amount of cards and you need to draw the highest number each turn to have a point. \nThe player who has most points will be the winner!")
+        elif num == 2:
+            print("\nThis game requires number of players from 2 to 5 people.")
+        elif num == 3:
+            print("\nGame over! \nThank you for playing!\nHope you had fun! :) \n")
+        
 
     def lines(num):
         '''Created this method to have a cleaner code
+            Returns a line depending on the parameter number
         '''
         if num == 1:
             print("================================================================")
