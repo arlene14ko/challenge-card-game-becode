@@ -37,20 +37,26 @@ class Board:
         line(1)
         history_cards = []
         active_cards = []
+        endgame = 'end'
         while turn_count < int(num_of_plays):
             for name, card in distribute.items():
                 player_name = name
-                current_cards = card
+                cards = card
                 line(3)
                 active_card = Player.play(
-                    player_name, current_cards
+                    player_name, cards
                 )  # chosen_card should be returned player should only play 1 card per turn (loop)
-                active_cards.append(active_card)
-                current_cards.remove(active_card)
+                if active_card == endgame:
+                    print("Game over!\nYou have decided to end the game. Thank you for playing!")
+                    break
+                else:
+                    active_cards.append(active_card)
+                    cards.remove(active_card)
+                    
             history_cards.append(active_cards)
             history = history_cards[:-1]
             turn_count += 1
-            powerful = Board.points(active_cards, name, card)
+            powerful = max(active_cards)
             line(2)
             print(
                 f"Players Turn Count: {turn_count} \nList of Active Cards: {active_cards} \nWinning Card: {powerful} \nHistory: {history}."
@@ -61,9 +67,8 @@ class Board:
         print("Game over! Congratulations! Hope you had fun! :) ")
         line(1)
 
-    def points(active_cards, name, card):
-        # scorecard
-        return max(active_cards)
+    def points():
+        pass
     
     def lines(num):
         if num == 1:
