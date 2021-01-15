@@ -38,8 +38,7 @@ This is a pretty simple Card game and it has two branches `Main` branch and `Dev
 - The game is interactive, at first, you will be asked for the number of players and then the player names.
 - You will be given the same amount of cards and you have to draw one at every turn.
 - At each turn, the player is asked which card he/she wants to play.
-- It adds points for the player who has the most `powerful` card played during the turn.
-- It also announces the winner, the player has the most points at the end of the game.
+- It also has an option if the player wants to end the game during his/her turn
 
 ### Code Style
  - Each **class** have a **`__str__()` method**
