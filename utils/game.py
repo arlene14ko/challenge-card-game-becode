@@ -1,5 +1,5 @@
-from utils.card import Deck
-from utils.player import Player
+from utils.card import Deck #importing the Deck class from card.py
+from utils.player import Player #importing the Player class from player.py
 
 
 class Board:
@@ -16,20 +16,38 @@ class Board:
         self.history_cards = history_cards
 
     def start_game(num_of_players, player_list):
-        # calling class Deck from card.py
-        deck = Deck  # adding a variable deck to call the Deck class
-
-        # filling deck with 52 cards
+        ''' Function start_game will start the game. 
+            It will have 2 parameters that it will get from main.py
+                1. num_of_players - int - this has the total number of players
+                2. player_list - list - this has the list of the player names
+            Calling the Deck class from card.py
+            :attrib deck will be the Deck class
+            :deck.fill_deck() - Filling the Deck with 52 cards
+            :attrib cards - will be the filled deck with 52 cards
+            :deck.shuffle(cards) - will randomly shuffle the cards
+            :attrib distribute - will distribute the cards evenly to the players
+                - this requires 3 parameters: num_of_players, player_list, and cards
+        '''
+        deck = Deck 
         deck.fill_deck()
-        cards = deck.fill_deck()  # working
-
-        # shuffle deck function to shuffle the deck
-        deck.shuffle(cards)  # working
-
-        # distribute the deck to the players
+        cards = deck.fill_deck()
+        deck.shuffle(cards)
         distribute = deck.distribute(num_of_players, player_list, cards)  # working
 
-        # looping the number of times the game will play
+        '''Creating a while loop where it will loop the number of times the game will play
+            :attrib num_of_plays will contain the number of plays in the game - cards/num_of_players
+            :turn_count will contain the number of turns in the game, starting at int 0
+            :line - imported from the function lines, to make a cleaner GUI code
+            :attrib history_cards - will contain the players history cards, starting at [] list
+            :attrib active_cards - will contain the players current played cards
+            :attrib endgame - a string containing 'end' which will allow the player to end the game during his/her turn
+            :attrib active_card - the card that the player chose during the turn
+            :attrib player_name - the name of the player from the player_list
+            :attrib cards - containes all the cards the player have
+            :attrib history - contains all the history_cards except the last element
+            :attrib powerful - contains the most powerful card during the turn
+           Adding an if statement where if the active_card contains 'end', it will break the loop and end the game. 
+        '''
         num_of_plays = int(len(cards) / num_of_players)
         turn_count = 0
         print(f"\nNumber of plays: {num_of_plays}, Num of Players: {num_of_players} \n")
@@ -47,24 +65,28 @@ class Board:
                     player_name, cards
                 )  # chosen_card should be returned player should only play 1 card per turn (loop)
                 if active_card == endgame:
-                    print("Game over!\nYou have decided to end the game. Thank you for playing!")
+                    line(1)
+                    print(f"\n{player_name} have decided to end the game. \n")
                     break
                 else:
                     active_cards.append(active_card)
                     cards.remove(active_card)
                     
-            history_cards.append(active_cards)
-            history = history_cards[:-1]
-            turn_count += 1
-            powerful = max(active_cards)
-            line(2)
-            print(
-                f"Players Turn Count: {turn_count} \nList of Active Cards: {active_cards} \nWinning Card: {powerful} \nHistory: {history}."
-            )
-            line(2)
-            active_cards = []
+            if active_card == endgame:   
+                break
+            else:
+                history_cards.append(active_cards)
+                history = history_cards[:-1]
+                turn_count += 1
+                powerful = max(active_cards)
+                line(2)
+                print(
+                    f"Players Turn Count: {turn_count} \nList of Active Cards: {active_cards} \nWinning Card: {powerful} \nHistory: {history}."
+                    )
+                line(2)
+                active_cards = []
         line(1)
-        print("Game over! Congratulations! Hope you had fun! :) ")
+        print("\nGame over! \nThank you for playing!\nHope you had fun! :) \n")
         line(1)
 
     def points():
@@ -76,4 +98,4 @@ class Board:
         elif num == 2:
             print("________________________________________________________________")
         elif num == 3:
-            print("-----------------------------------------------------------------")
+            print("----------------------------------------------------------------")
